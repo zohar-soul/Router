@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.chenenyu.router'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -45,6 +47,10 @@ dependencies {
     compile "com.android.support:appcompat-v7:${rootProject.ext.supportVersion}"
     compile project(':module1')
     compile project(':module2')
-    testCompile 'junit:junit:4.12'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+}
+repositories {
+    mavenCentral()
 }

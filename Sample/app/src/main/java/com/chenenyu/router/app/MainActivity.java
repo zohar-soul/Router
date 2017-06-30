@@ -11,8 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.chenenyu.router.RouteCallback;
-import com.chenenyu.router.RouteResult;
 import com.chenenyu.router.RouteTable;
 import com.chenenyu.router.Router;
 
@@ -62,21 +60,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 map.put("dynamic", DynamicActivity.class);
             }
         });
+        TestKt.test();
     }
 
     @Override
     public void onClick(View v) {
         if (v == btn0) {
-            Router.build(uri).callback(new RouteCallback() { // 添加结果回调
-                @Override
-                public void callback(RouteResult state, Uri uri, String message) {
-                    if (state == RouteResult.SUCCEED) {
-                        Toast.makeText(MainActivity.this, "succeed: " + uri.toString(), Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(MainActivity.this, "error: " + uri + ", " + message, Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }).go(this);
+//            Router.build(uri).callback(new RouteCallback() { // 添加结果回调
+//                @Override
+//                public void callback(RouteResult state, Uri uri, String message) {
+//                    if (state == RouteResult.SUCCEED) {
+//                        Toast.makeText(MainActivity.this, "succeed: " + uri.toString(), Toast.LENGTH_SHORT).show();
+//                    } else {
+//                        Toast.makeText(MainActivity.this, "error: " + uri + ", " + message, Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//            }).go(this);
+            Router.build(TestKt.getTestActivity()).go(this);
         } else if (v == btn1) {
             Router.build(btn1.getText().toString()).go(this);
         } else if (v == btn2) {
